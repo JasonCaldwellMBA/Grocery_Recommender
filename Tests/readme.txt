@@ -1,0 +1,2 @@
+All tests for this project will be at the end of each notebook so it is easy to see them.
+If this was a real project and the proof of concept was accepted the tests in the notebooks would be moved into this directory and in some cases expanded. 
