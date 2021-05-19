@@ -2,7 +2,10 @@
 # Note the ones below are not sensitive so they are included as an example here. 
 # If there were sensitive variables they should not have the real value here (or anywhere else in source control). 
 
-IN_DATA_FILEPATH=../Raw_Data/meta_Grocery_and_Gourmet_Food.json.gz
-DOC_FILEPATH=../Grocery_Recommender_-_Capstone_Two.pdf
+IN_DATA_FILEPATH=../Raw_Data/
+RAW_META_FILE=meta_Grocery_and_Gourmet_Food.json.gz
+RAW_REVIEW_FILE=Grocery_and_Gourmet_Food_5.json.gz
+DOCUMENTATION_FILEPATH=../Grocery_Recommender_-_Capstone_Two.pdf
 PRICES_LOG=../Logging/prices.log
-OUT_DATA_FILEPATH=../Data/grocery_data_cleaned.csv
+OUT_DATA_FILEPATH=../Data/
+CLEANED_META_FILE=grocery_data_cleaned.csv
