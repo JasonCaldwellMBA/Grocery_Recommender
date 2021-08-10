@@ -9,3 +9,4 @@ DOCUMENTATION_FILEPATH=../Grocery_Recommender_-_Capstone_Two.pdf
 PRICES_LOG=../Logging/prices.log
 OUT_DATA_FILEPATH=../Data/
 CLEANED_META_FILE=grocery_data_cleaned.csv
+CLEANED_COMBINED_FILE=combined_data_cleaned.csv
