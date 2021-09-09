@@ -6,6 +6,10 @@
 - Trained, tested, and evaluated multiple machine learning models using hard-coded baselines, simple means, content-based filtering, collaborative filtering, various custom similarity functions, and hybrid approaches.
 - The results showed a hybrid model using both content-based and collaborative filtering achieved an accuracy of 60-90%.
 
+## Project Technologies
+- Developed using Python and Jupyter Notebooks.
+- The following modules and packages were used: json, gzip, pandas, os, dotenv, numpy, matplotlib, seaborn, IPython, scipy, sklearn, random, unittest, and logging.
+
 ## Problem Statement
 Educational project to gather data on grocery purchases to recommend additional products to consumers using the data science method of: 
 - Problem Identification
@@ -64,6 +68,12 @@ Several popular recommendation systems return only 10 to 20 results. Therefore, 
   
 The results were significantly better when choosing a random sample of 10 and only including recommendations that were predicted to be 5-stars. During analysis and testing these predictions were 60 to 90% accurate.
 
+### Additions to Project
+- Created unit and integration tests.
+- Added logging.
+- Created .env and environment_example.txt files.
+- Refactored course example tutorial from Python 2 to Python 3; which involved updating a lot of deprecated code and re-writing functions and classes.
+
 ## Conclusion
 Recommendation systems improve customer retention, increase sales, and help form customer habits. 
 This project involved gathering, cleaning, exploring, analyzing, pre-processing, modeling, and presenting conclusions related to multiple data sets. 
@@ -76,24 +86,23 @@ The best weighted averages were:
 - Recall: 90%
 - F1-score: 85%
 
-The biggest challenges were:
-- Limiting the scope of the project by:
+The biggest challenges during the project were:
+- Limiting the scope by:
     - analyzing just grocery data, and 
     - evaluating only the models discussed.
-- Significantly more data cleaning was needed than was originally expected. 
-- Refactored an example tutorial from Python 2 to Python 3 code.
+- More data cleaning was needed than was originally expected. 
+    - Most of the data was not null; however, a lot of it was blank or mis-formatted and this had to be significantly wrangled before it could be evaluated.
+- Updating the sample code to use more recent examples and tools.
+- The amount of processing time and resources needed to analyze the models.
 
-As a result, just a subset of grocery data was modeled because the last two challenges above took away some time to process and train the models. 
-Most of the data was not null; however, a lot of it was blank or mis-formatted and this had to be wrangled before it could be evaluated.
-This project also involved updating a lot of deprecated code and re-writing functions and classes.
-However, these scenarios also happen in the real world projects frequently and need to be completed to get the job done.
+Despite these challenges the project was still successfully completed. These types of scenarios happen in the real world projects too and need to be resolved in order to get the job done.
 
 ## Next Steps
 The best performing model’s results could be improved by training on more of the data. Only about 1% of the available data was used because of time constraints. Then, this model could be deployed into production with a serverless architecture; such as using Amazon API Gateway, Lambda, and SageMaker.
 
 Next, on the company’s website, A/B testing should be done to determine the most helpful recommendations by analyzing Click Through Rate (CTR), Conversion Rate (CR), and Return on Investment (ROI). Finally, the models, and the related recommendations, should continue to be enhanced by adjusting to new data, the user’s behavior, and purchases over time.
 
-## References
+## References and Resources
 - Jianmo Ni (2018). [Amazon Review Data (2018)](https://nijianmo.github.io/amazon/).
 - Muffaddal Qutbuddin (2020). [An Exhaustive List of Methods to Evaluate Recommender Systems](https://towardsdatascience.com/an-exhaustive-list-of-methods-to-evaluate-recommender-systems-a70c05e121de).
 - Rumi Olsen (2018). [Call an Amazon SageMaker model endpoint using Amazon API Gateway and AWS Lambda](https://aws.amazon.com/blogs/machine-learning/call-an-amazon-sagemaker-model-endpoint-using-amazon-api-gateway-and-aws-lambda/).
