@@ -7,8 +7,8 @@
 - The results showed a hybrid model using both content-based and collaborative filtering achieved an accuracy of 60-90%.
 
 ## Project Technologies
-- Developed using Python and Jupyter Notebooks.
-- The following modules and packages were used: json, gzip, pandas, os, dotenv, numpy, matplotlib, seaborn, IPython, scipy, sklearn, random, unittest, and logging.
+- Developed using Python, Jupyter Notebooks, Git, and GitHub.
+- Used the following modules and packages: dotenv, gzip, IPython, json, logging, matplotlib, numpy, os, pandas, random, scipy, seaborn, sklearn, and unittest.
 
 ## Problem Statement
 Educational project to gather data on grocery purchases to recommend additional products to consumers using the data science method of: 
@@ -28,10 +28,44 @@ Removed 6 columns that had less than 5% of the data and didn't look critical for
 
 The features of interest related to implicit feedback are title, also_buy, also_view and rank. While the features related to explicit feedback are overall and summary. The target feature is ‘overall’; which is the overall rating of the product.
 
+| Column     | Non-Null Count    | Data Type |
+| ------     | ----------------  | --------- |
+| category   |  1083170 non-null | object    |
+| title      |  1083170 non-null | object    |
+| also_buy   |  926546 non-null  | object    |
+| brand      |  1075197 non-null | object    |
+| rank       |  1039163 non-null | object    |
+| also_view  |  577060 non-null  | object    |
+| main_cat   |  1081896 non-null | object    |
+| price      |  750231 non-null  | float64   |
+| asin       |  1083170 non-null | object    |
+| overall    |  1083170 non-null | float64   |
+| verified   |  1083170 non-null | bool      |
+| reviewerID |  1083170 non-null | object    |
+| vote       |  149247 non-null  | float64   |
+| style      |  559212 non-null  | object    |
+
 ### Exploratory Data Analysis
 There were only 3 numeric (overall, price, and vote) and 1 boolean (verified) features in the data set. All of these features were skewed towards a particular value; however, none were correlated with each other. Ended up dropping the summary feature because it contained a lot of duplicate data with the target feature of overall rating.
 
+![Rating Distribution](./images/Rating_Distribution.png)
+
 The majority of the features were categories/objects/text. There are so many categories it wasn't possible to do one hot encoding because of memory issues. However, this doesn’t matter because the project will use processes designed specifically for recommendation systems to overcome these limitations.
+
+#### Categories and Objects
+| Features | Number of Categories |
+| --- | --- |
+| category | 1107 |
+| title | 40969  |
+| also_buy | 29115 |
+| brand | 8861 |
+| rank | 36865 |
+| also_view | 21871 |
+| main_cat | 17 |
+| asin | 41280 |
+| reviewerID | 127496 |
+| summary | 526687 |
+| style | 27490 | 
 
 ### Preprocessing and Training
 Using a subset of the data going forward for processing speed reasons. Would still limit the amount of data first in most scenarios to get feedback from several models faster. Performed an 80/20 train/test split on this smaller dataset.
@@ -65,13 +99,14 @@ Employed a hybrid approach of combining both the content-based and collaborative
 
 #### Version 3.1
 Several popular recommendation systems return only 10 to 20 results. Therefore, creating a function to return the top x recommendations worked even better. Also, added other performance evaluation metrics to evaluate the results. These included: precision, recall, f1-score, and a precision-recall curve. 
-  
+
+![Precision-Recall Curve](./images/Precision-Recall_curve.png)
+
 The results were significantly better when choosing a random sample of 10 and only including recommendations that were predicted to be 5-stars. During analysis and testing these predictions were 60 to 90% accurate.
 
 ### Additions to Project
-- Created unit and integration tests.
-- Added logging.
-- Created .env and environment_example.txt files.
+- Created logging, unit, and integration tests.
+- Added .env (not in source control) and environment_example.txt files.
 - Refactored course example tutorial from Python 2 to Python 3; which involved updating a lot of deprecated code and re-writing functions and classes.
 
 ## Conclusion
@@ -86,10 +121,10 @@ The best weighted averages were:
 - Recall: 90%
 - F1-score: 85%
 
-The biggest challenges during the project were:
+### Biggest Challenges:
 - Limiting the scope by:
     - analyzing just grocery data, and 
-    - evaluating only the models discussed.
+    - evaluating only the recommendation models listed above.
 - More data cleaning was needed than was originally expected. 
     - Most of the data was not null; however, a lot of it was blank or mis-formatted and this had to be significantly wrangled before it could be evaluated.
 - Updating the sample code to use more recent examples and tools.
@@ -99,6 +134,8 @@ Despite these challenges the project was still successfully completed. These typ
 
 ## Next Steps
 The best performing model’s results could be improved by training on more of the data. Only about 1% of the available data was used because of time constraints. Then, this model could be deployed into production with a serverless architecture; such as using Amazon API Gateway, Lambda, and SageMaker.
+
+![Amazon API Gateway, Lambda, and SageMaker](./images/Next_Steps.png)
 
 Next, on the company’s website, A/B testing should be done to determine the most helpful recommendations by analyzing Click Through Rate (CTR), Conversion Rate (CR), and Return on Investment (ROI). Finally, the models, and the related recommendations, should continue to be enhanced by adjusting to new data, the user’s behavior, and purchases over time.
 
