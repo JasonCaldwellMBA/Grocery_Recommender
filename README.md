@@ -2,9 +2,8 @@
 
 ## Executive Summary
 - Recommendation systems help increase sales and improve customer satisfaction.
-- Want to research what type of machine learning models provide the most accurate recommendations.
 - Trained, tested, and evaluated multiple machine learning models using hard-coded baselines, simple means, content-based filtering, collaborative filtering, various custom similarity functions, and hybrid approaches.
-- The results showed a hybrid model using both content-based and collaborative filtering achieved the best accuracy of 60-90%.
+- The results showed a hybrid model using both content-based and collaborative filtering achieved the best results with a F1-score of 85%.
 
 ## Project Technologies
 - Developed using Python, Jupyter Notebooks, Git, and GitHub.
@@ -121,18 +120,21 @@ Employed a hybrid approach of combining both the content-based and collaborative
 In all cases, the estimates on the training data were significantly better than all previous notebook versions. 
 The best performing was euclidean with a RMSE of 0.2027. 
 However, the estimates on the testing data were not as good at 1.1413. 
+Results show there was an issue with overfitting. 
 Despite this, these predictions were still better than all previous versions; including the baseline.
 
 #### Version 3.1
 Most recommendation systems return only a subset of the results. 
 Therefore, creating a function to return just the top 10 recommendations worked even better. 
+During analysis and testing these predictions were 60 to 90% accurate. 
 Also, added other performance metrics to evaluate the results. 
 These included: precision, recall, f1-score, and a precision-recall curve. 
 
 ![Precision-Recall Curve](./images/Precision-Recall_curve.png)
 
 The results worked well when choosing a random sample of 10 recommendations that were predicted to be 5-stars. 
-During analysis and testing these predictions were 60 to 90% accurate.
+However, the results were not very good for the other ratings. 
+A lesson learned here is that earlier the dataset should have had the 5-star ratings downsampled or the other ratings upsampled to better account for the uneven class distribution.
 
 ### Additions to Project
 - Created unit and integration tests.
@@ -164,13 +166,14 @@ The best weighted averages were:
 - F1-score: 85%
 
 ## Next Steps
-The best performing model’s results could be improved by training on more of the data. 
+Create a newer version 4 using PySpark.
+This would use parallel processing and cloud computing. 
+Then, the best performing model’s results could be improved by training on more of the data. 
 Only about 1% of the available data was used because of time constraints. 
-Then, this model could be deployed into production with a serverless architecture; such as using Amazon API Gateway, Lambda, and SageMaker.
+Next, this model could be deployed into production.
+At this point, it would be possible to get faster prediction times (almost real-time instead of the current batch process).
 
-![Amazon API Gateway, Lambda, and SageMaker](./images/Next_Steps.png)
-
-Next, on the company’s website, A/B testing should be done to determine the most helpful recommendations by analyzing Click Through Rate (CTR), Conversion Rate (CR), and Return on Investment (ROI). 
+After that, on the company’s website A/B testing should be done to determine the most helpful recommendations by analyzing Click Through Rate (CTR), Conversion Rate (CR), and Return on Investment (ROI). 
 Finally, the models, and the related recommendations, should continue to be enhanced by adjusting to new data, the user’s behavior, and purchases over time.
 
 ## References and Resources
